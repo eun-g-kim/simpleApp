@@ -2,11 +2,8 @@ package com.example.example;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,15 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView ctr;
     private ImageView img;
-    private int value =0 ; //카운터 값
+    private int value =3 ; //카운터 값
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true); //왼쪽에 home버튼 (뒤로가기 버튼 추가)
-       // getSupportActionBar().setHomeAsUpIndicator(Drawable.createFromPath("@android:drawable/ic_menu_sort_by_size"));  //home 버튼 모양 변경 가능
-       getSupportActionBar().setTitle("");   //타이틀 공백처리
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true); //왼쪽에 home버튼 (뒤로가기 버튼 추가)
+       getSupportActionBar().setHomeAsUpIndicator(Drawable.createFromPath("@android:drawable/ic_menu_sort_by_size"));  //home 버튼 모양 변경 가능
+        getSupportActionBar().setTitle("");   //타이틀 공백처리
         ctr = findViewById(R.id.counter);
         img = findViewById(R.id.mapImage);
         ctr.setText(Integer.toString(value)); //항상 0으로 초기화
@@ -45,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener ctrListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(getApplicationContext(), "클릭됨", Toast.LENGTH_LONG).show();
-           // img.setVisibility(View.VISIBLE);
-            ++value;
+        //    Toast.makeText(getApplicationContext(), "클릭됨", Toast.LENGTH_LONG).show();
+            img.setVisibility(View.VISIBLE);
+          //  value++;
             ctr.setText(Integer.toString(value));
         }
     };
     View.OnClickListener imgListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Toast.makeText(getApplicationContext(), "클릭됨", Toast.LENGTH_LONG).show();
+          //  Toast.makeText(getApplicationContext(), "클릭됨", Toast.LENGTH_LONG).show();
             img.setVisibility(View.GONE);
         }
     };
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
-                Toast.makeText(getApplicationContext(), "나머지 버튼 클릭됨", Toast.LENGTH_LONG).show();
+               Toast.makeText(getApplicationContext(), "나머지 버튼 클릭됨", Toast.LENGTH_LONG).show();
                 return super.onOptionsItemSelected(item);
 
         }
